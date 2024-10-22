@@ -21,8 +21,9 @@ export default function Home() {
       const newPercentage = calculatePercentage(pledgeValue);
       setSpacePledge(data.pledge);
       setPercentage(newPercentage);
+      console.log(data);
     } else {
-      setSpacePledge("Error fetching page");
+      setSpacePledge("Error fetching pledge");
     }
   };
 
@@ -36,7 +37,7 @@ export default function Home() {
     <div
       className={`relative bg-cover bg-center text-white py-4 flex flex-col justify-center items-center background-animated`}
       style={{
-        backgroundImage: `url('https://canada1.discourse-cdn.com/flex011/uploads/subspace/optimized/2X/a/a1a34185d731c22d9d01b06fc5ddf31300a7a7c8_2_690x388.jpeg')`,
+        backgroundImage: `url('https://thumbs.dreamstime.com/b/futuristic-space-mining-operation-design-background-instagram-facebook-wall-painting-ai-generated-content-operation-ai-324126118.jpg')`,
         minHeight: "100vh",
       }}
     >
