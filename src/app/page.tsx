@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Footer from "../app/Footer";
 
 const MAX_SPACE = 20;
