@@ -27,11 +27,11 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    updateSpacePledge();
-    const intervalId = setInterval(updateSpacePledge, 100000);
-    return () => clearInterval(intervalId);
-  }, []);
+  // useEffect(() => {
+  //   updateSpacePledge();
+  //   const intervalId = setInterval(updateSpacePledge, 100000);
+  //   return () => clearInterval(intervalId);
+  // }, []);
 
   return (
     <div
