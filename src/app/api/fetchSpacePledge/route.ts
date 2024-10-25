@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const api = await activate({ networkId: "gemini-3h" });
+    const api = await activate({ networkId: "" });
     const total = await spacePledge(api);
     await api.disconnect();
     const formattedPledge = formatSpacePledged(total);
