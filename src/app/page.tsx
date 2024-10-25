@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Footer from "../app/Footer";
 
 const MAX_SPACE = 20;
@@ -37,18 +37,9 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const fetchInitialData = () => {
-      updateSpacePledge();
-    };
-
-    const timeoutId = setTimeout(fetchInitialData, 1000); // delay before first fetch
-
-    const intervalId = setInterval(updateSpacePledge, 600000); // periodic updates
-
-    return () => {
-      clearTimeout(timeoutId);
-      clearInterval(intervalId);
-    };
+    updateSpacePledge();
+    const intervalId = setInterval(updateSpacePledge, 100000);
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
