@@ -20,7 +20,7 @@ export default function Home() {
   const [blockHeightGemini, setBlockHeightGemini] = useState(0);
   const [percentageGemini, setPercentageGemini] = useState(0);
 
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(true); // Loading state
 
   const fetchSpacePledgeTaurus = async () => {
     setLoading(true);
@@ -87,71 +87,78 @@ export default function Home() {
         AUTONOMYS NETWORK DATA OVERVIEW
       </h1>
 
-      <div className="flex flex-col md:flex-row w-full justify-center z-10">
-        {/* Taurus Data */}
-        <div className="m-4 p-4 rounded-lg flex flex-col items-center">
-          <h2 className="text-3xl font-bold">Taurus Network</h2>
-          <h3 className="text-2xl font-bold mb-4">Current Space Pledged</h3>
-          <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-            <svg viewBox="0 0 36 36" className="w-full h-full">
-              <path
-                className="text-gray-600"
-                fill="none"
-                strokeWidth="3"
-                stroke="currentColor"
-                d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"
-              />
-              <path
-                className="text-green-500"
-                fill="none"
-                strokeWidth="3"
-                stroke="currentColor"
-                strokeDasharray={`${percentageTaurus} ${
-                  100 - percentageTaurus
-                }`}
-                d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"
-              />
-            </svg>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <p className="text-4xl">{spacePledgeTaurus}</p>
-            </div>
-          </div>
-          <p className="text-lg">Blockchain Size: {blockchainSizeTaurus}</p>
-          <p className="text-lg">Block Height: {blockHeightTaurus}</p>
+      {loading ? (
+        <div className="text-center z-10">
+          <p className="text-xl">Loading data...</p>
         </div>
+      ) : (
+        <div className="flex flex-col md:flex-row w-full justify-center z-10">
+          {/* Taurus Data */}
 
-        {/* Gemini Data */}
-        <div className="m-4 p-4 rounded-lg flex flex-col items-center">
-          <h2 className="text-3xl font-bold">Gemini 3H Network</h2>
-          <h3 className="text-2xl font-bold mb-4">Current Space Pledged</h3>
-          <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-            <svg viewBox="0 0 36 36" className="w-full h-full">
-              <path
-                className="text-gray-600"
-                fill="none"
-                strokeWidth="3"
-                stroke="currentColor"
-                d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"
-              />
-              <path
-                className="text-green-500"
-                fill="none"
-                strokeWidth="3"
-                stroke="currentColor"
-                strokeDasharray={`${percentageGemini} ${
-                  100 - percentageGemini
-                }`}
-                d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"
-              />
-            </svg>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <p className="text-4xl">{spacePledgeGemini}</p>
+          <div className="m-4 p-4 rounded-lg flex flex-col items-center text-center">
+            <h2 className="text-3xl font-bold">Taurus Network</h2>
+            <h3 className="text-2xl font-bold mb-4">Current Space Pledged</h3>
+            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              <svg viewBox="0 0 36 36" className="w-full h-full">
+                <path
+                  className="text-gray-600"
+                  fill="none"
+                  strokeWidth="3"
+                  stroke="currentColor"
+                  d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"
+                />
+                <path
+                  className="text-green-500"
+                  fill="none"
+                  strokeWidth="3"
+                  stroke="currentColor"
+                  strokeDasharray={`${percentageTaurus} ${
+                    100 - percentageTaurus
+                  }`}
+                  d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"
+                />
+              </svg>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <p className="text-4xl">{spacePledgeTaurus}</p>
+              </div>
             </div>
+            <p className="text-lg">Blockchain Size: {blockchainSizeTaurus}</p>
+            <p className="text-lg">Block Height: {blockHeightTaurus}</p>
           </div>
-          <p className="text-lg">Blockchain Size: {blockchainSizeGemini}</p>
-          <p className="text-lg">Block Height: {blockHeightGemini}</p>
+
+          {/* Gemini Data */}
+          <div className="m-4 p-4 rounded-lg flex flex-col items-center text-center">
+            <h2 className="text-3xl font-bold">Gemini 3H Network</h2>
+            <h3 className="text-2xl font-bold mb-4">Current Space Pledged</h3>
+            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+              <svg viewBox="0 0 36 36" className="w-full h-full">
+                <path
+                  className="text-gray-600"
+                  fill="none"
+                  strokeWidth="3"
+                  stroke="currentColor"
+                  d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"
+                />
+                <path
+                  className="text-green-500"
+                  fill="none"
+                  strokeWidth="3"
+                  stroke="currentColor"
+                  strokeDasharray={`${percentageGemini} ${
+                    100 - percentageGemini
+                  }`}
+                  d="M18 2 a16 16 0 1 1 0 32 a16 16 0 1 1 0 -32"
+                />
+              </svg>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <p className="text-4xl">{spacePledgeGemini}</p>
+              </div>
+            </div>
+            <p className="text-lg">Blockchain Size: {blockchainSizeGemini}</p>
+            <p className="text-lg">Block Height: {blockHeightGemini}</p>
+          </div>
         </div>
-      </div>
+      )}
 
       <Footer />
     </div>
