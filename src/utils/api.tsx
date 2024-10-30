@@ -1,4 +1,3 @@
-// src/app/api/fetchSpacePledge/route.ts
 import { formatSpacePledged } from "@/utils/number";
 import {
   blockchainSize,
@@ -6,9 +5,20 @@ import {
   spacePledged,
 } from "@autonomys/auto-consensus";
 import { activate, NetworkId } from "@autonomys/auto-utils";
-import { NextResponse } from "next/server";
 
-export async function GET() {
+export type ApiData = {
+  blockHeight: number;
+  spacePledged: string;
+  blockchainSize: string;
+};
+
+export const DEFAULT_API_DATA: ApiData = {
+  blockHeight: 0,
+  spacePledged: "loading...",
+  blockchainSize: "loading...",
+};
+
+export const fetchApiData = async (): Promise<ApiData> => {
   try {
     const api = await activate({ networkId: NetworkId.TAURUS });
     const [blockHeight, total, size] = await Promise.all([
@@ -17,15 +27,17 @@ export async function GET() {
       blockchainSize(api),
     ]);
     await api.disconnect();
-    // const formattedPledge = formatSpacePledged(total);
-    // return NextResponse.json({ pledge: formattedPledge });
-    return NextResponse.json({
+    return {
       blockHeight,
       spacePledged: formatSpacePledged(total),
       blockchainSize: formatSpacePledged(size),
-    });
+    };
   } catch (error) {
-    console.error("Error fetching space pledge:", error);
-    return NextResponse.error();
+    console.error("Error fetching data:", error);
+    return {
+      blockHeight: 0,
+      spacePledged: "Error fetching data",
+      blockchainSize: "Error fetching data",
+    };
   }
-}
+};

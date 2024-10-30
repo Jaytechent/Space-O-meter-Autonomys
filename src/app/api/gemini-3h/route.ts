@@ -10,7 +10,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const api = await activate({ networkId: NetworkId.TAURUS });
+    const api = await activate({ networkId: NetworkId.GEMINI_3H });
     const [blockHeight, total, size] = await Promise.all([
       blockNumber(api),
       spacePledged(api),
