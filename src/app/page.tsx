@@ -77,8 +77,7 @@ export default function Home() {
     <div
       className={`relative bg-cover bg-center text-white py-4 flex flex-col justify-center items-center background-animated`}
       style={{
-        backgroundImage: `url('https://files.oaiusercontent.com/file-PsHng6BFYXwAGqOVzZqghO7d?se=2024-10-30T05%3A29%3A45Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D318f2a4f-3e70-4cb5-8a20-97a6f4b96c14.webp&sig=2K06/0FTbAPnwCmVicB/m2yIDWCd%2BSSbqRP90NBGMN4%3D')`,
-
+        backgroundImage: `url('/images/bg.webp')`, // Updated to use the image from the public directory
         minHeight: "100vh",
       }}
     >
