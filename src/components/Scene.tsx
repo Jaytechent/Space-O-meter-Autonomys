@@ -4,7 +4,7 @@ import { NetworkId } from "@autonomys/auto-utils";
 import { useCallback, useEffect, useState } from "react";
 import Footer from "../app/Footer";
 
-const MAX_SPACE = 100;
+const MAX_SPACE = 10000;
 const MAX_SPACEG = 1000;
 
 const calculatePercentage = (value: number, max: number) => (value / max) * 100;
@@ -24,8 +24,8 @@ export const Scene = () => {
       ]);
       console.log("Taurus Data:", taurus);
       console.log("Gemini Data:", gemini);
-      setTaurusData(taurus);
-      setGeminiData(gemini);
+      // setTaurusData(taurus);
+      // setGeminiData(gemini);
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
