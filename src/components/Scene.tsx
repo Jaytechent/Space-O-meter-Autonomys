@@ -22,6 +22,8 @@ export const Scene = () => {
         fetchApiData(NetworkId.TAURUS),
         fetchApiData(NetworkId.GEMINI_3H),
       ]);
+      console.log("Taurus Data:", taurus);
+      console.log("Gemini Data:", gemini);
       setTaurusData(taurus);
       setGeminiData(gemini);
     } catch (error) {
